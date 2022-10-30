@@ -9,25 +9,30 @@ public class Timer extends Thread {
 
     public void run() {
 
+
         long timez = !Gui.textfield1.getText().isEmpty() ? Long.parseLong(Gui.textfield1.getText()) : 0;
 
+        if (timez != 0) {
+            try {
+                ClockTimez.onT = true;
+                new ClockTimez().setDaemon(true);
+                new ClockTimez().start();
 
-        try {
-            ClockTimez.cl.setDaemon(true);
-            ClockTimez.cl.start();
-
-            sleep(60000* timez + 1800);
-            trackPlayz();
-
-            for (int i = 0; i < 10; i++) {
-
-                sleep(10000);
+                sleep(60000 * timez + 1800);
                 trackPlayz();
 
+                for (int i = 0; i < 10; i++) {
+
+                    sleep(10000);
+                    trackPlayz();
+
+                }
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
 
-        } catch (InterruptedException e) {e.printStackTrace();}
-
+        }
     }
 
     public static void trackPlayz(){

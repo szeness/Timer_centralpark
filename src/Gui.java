@@ -51,13 +51,31 @@ public class Gui extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 if (((JButton) e.getSource()).getText().equals("Start Timer")) {
 
-                    Timer timezz = new Timer();
-                    if (!timezz.isAlive()) {
-                        timezz.setDaemon(true);
-                        timezz.start();
 
 
-                    }}}});
+
+
+                    if (ClockTimez.onT){
+                        ClockTimez.onT = false;
+                        try {
+                            new Thread().sleep(1000);
+                            new Timer().setDaemon(true);
+                            new Timer().start();
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+
+
+
+
+                    }else {
+                        ClockTimez.onT = true;
+                        new Timer().setDaemon(true);
+                        new Timer().start();
+                    }
+
+
+                }}});
 
 
 
@@ -70,9 +88,15 @@ public class Gui extends JFrame {
         buttonTimerStop.setVisible(true);
         buttonTimerStop.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) { if (((JButton) e.getSource()).getText().equals("Exit")) {
+            public void actionPerformed(ActionEvent e) {
 
-               System.exit(1);  ;}}});
+                if (((JButton) e.getSource()).getText().equals("Exit")) {
+
+                    ClockTimez.onT = false;
+
+
+
+            }}});
 
 
 
