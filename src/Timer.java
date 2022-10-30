@@ -12,10 +12,10 @@ public class Timer extends Thread {
 
         long timez = !Gui.textfield1.getText().isEmpty() ? Long.parseLong(Gui.textfield1.getText()) : 0;
 
-        if (timez != 0) {
+        if (timez != 0 && ClockTimez.runinT) {
             try {
 
-                ClockTimez.onT = true;
+
                 new ClockTimez().setDaemon(true);
                 new ClockTimez().start();
 

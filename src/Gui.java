@@ -14,6 +14,7 @@ public class Gui extends JFrame {
     public static ImageIcon bg2p = new ImageIcon(Objects.requireNonNull(Gui.class.getResource
                                          ("img/241295199_10227674595196311_8378346888603849515_n.jpg")));
     public JButton buttonTimerStop;
+    public JButton buttonTimerReset;
     public JLabel wp;
     public JFrame framzz;
     public JButton buttonTimer;
@@ -50,14 +51,14 @@ public class Gui extends JFrame {
 
             if (((JButton) e.getSource()).getText().equals("Start Timer")) {
 
-                if(ClockTimez.resetT) {
-                    ClockTimez.onT = true;
+                if(ClockTimez.pauseT) {
+                    ClockTimez.runinT = true;
                     new Timer().setDaemon(true);
                     new Timer().start();
 
                 }  else {
                     try {
-                        ClockTimez.onT = true;
+                        ClockTimez.runinT = true;
                         new Thread().sleep(1000);
                         new Timer().setDaemon(true);
                         new Timer().start();
@@ -88,13 +89,44 @@ public class Gui extends JFrame {
 
                 if (((JButton) e.getSource()).getText().equals("Pause")) {
 
-                    ClockTimez.onT = false;
+                    ClockTimez.runinT = false;
 
-                    ClockTimez.resetT = true;
+                    ClockTimez.pauseT = true;
 
             }}});
 
 
+        buttonTimerReset = new JButton("Reset");
+        buttonTimerReset.setSize(100,50);
+        buttonTimerReset.setLocation(150,250);
+        buttonTimerReset.setBackground(new Color(0, 17, 52, 255));
+        buttonTimerReset.setForeground(new Color(154, 147, 154, 255));
+        framzz.add(buttonTimerReset);
+        buttonTimerReset.setVisible(true);
+        buttonTimerReset.addActionListener(e -> {
+
+            if (((JButton) e.getSource()).getText().equals("Reset")) {
+
+                ClockTimez.runinT = false;
+                ClockTimez.pauseT = false;
+
+
+                try {
+                    new Thread().sleep(1000);
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+                ClockTimez.pauseT = false;
+
+                ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
+
+                Gui.area.setText(ClockTimez.counterZahl + ":");
+                Gui.area2.setText("00");
+                ClockTimez.runinT = true;
+
+
+            }});
 
         area = new JTextArea();
         area.setSize(100,50);

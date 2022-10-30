@@ -1,23 +1,23 @@
 public class ClockTimez extends Thread {
 
-    public static boolean onT;
-    public static boolean resetT;
+    public static boolean runinT;
+    public static boolean pauseT;
     static int counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
 
 
     public void run() {
 
 
-        while (onT) {
+        while (runinT) {
 
             try {
 
-                if (!resetT) {
+                if (!pauseT) {
 
                     counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
 
                     for (int j = 1; j <= counterZahl; j++) {
-                        if (onT) {
+                        if (runinT) {
                             Gui.area.setText(counterZahl + ":");
 
                             sleep(1000);
@@ -31,7 +31,7 @@ public class ClockTimez extends Thread {
 
                             for (int k = 59; k >= 0; k--) {
 
-                                if (onT) {
+                                if (runinT) {
                                     Gui.area2.setLocation(115 + ((Gui.area.getText().length() - 1) * 15), 208);
 
                                     if (Integer.toString(k).length() == 1) {
@@ -39,7 +39,7 @@ public class ClockTimez extends Thread {
                                     } else {
                                         Gui.area2.setText(Integer.toString(k));
                                     }
-                                    if (onT)
+                                    if (runinT)
                                         sleep(1000);
                                 }
                             }
@@ -49,12 +49,12 @@ public class ClockTimez extends Thread {
 
                 } else {
 
-                    if (onT) {
+                    if (runinT) {
 
 
 
                         for (int j = counterZahl; j >= 0; j--) {
-                            if (onT) {
+                            if (runinT) {
 
                                 sleep(1000);
 
@@ -69,7 +69,7 @@ public class ClockTimez extends Thread {
 
                                 for (int k = Integer.parseInt(Gui.area2.getText()); k >= 0; k--) {
 
-                                    if (onT) {
+                                    if (runinT) {
                                         Gui.area2.setLocation(115 + ((Gui.area.getText().length() - 1) * 15), 208);
 
                                         if (Integer.toString(k).length() == 1) {
@@ -77,7 +77,7 @@ public class ClockTimez extends Thread {
                                         } else {
                                             Gui.area2.setText(Integer.toString(k));
                                         }
-                                        if (onT)
+                                        if (runinT)
                                             sleep(1000);
                                     }
                                 }
