@@ -36,11 +36,7 @@ public class Timer extends Thread {
                     }
                 }
 
-                if(!ClockTimez.pauseT) {
-                    Gui.area2.setText("");
-                    Gui.area.setText("fin");
-                    trackPlayz();
-                }
+
 
 
             } catch (InterruptedException e) {

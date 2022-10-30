@@ -75,12 +75,14 @@ public class Gui extends JFrame {
 
             if (((JButton) e.getSource()).getText().equals("Pause")) {
 
+                if(!ClockTimez.runinT);
+                else{
 
-                ClockTimez.pauseT = true;
-
-                ClockTimez.runinT = false;
-
-        }});
+                    ClockTimez.pauseT = true;
+                    ClockTimez.runinT = false;
+                }
+            }
+        });
 
 
         buttonTimerReset = new JButton("Reset");
@@ -93,6 +95,7 @@ public class Gui extends JFrame {
         buttonTimerReset.addActionListener(e -> {
 
             if (((JButton) e.getSource()).getText().equals("Reset")) {
+
 
                 ClockTimez.runinT = false;
                 ClockTimez.pauseT = false;
