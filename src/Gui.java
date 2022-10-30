@@ -51,25 +51,13 @@ public class Gui extends JFrame {
 
             if (((JButton) e.getSource()).getText().equals("Start Timer")) {
 
-                if(ClockTimez.pauseT) {
+
                     ClockTimez.runinT = true;
+
                     new Timer().setDaemon(true);
                     new Timer().start();
 
-                }  else {
-                    try {
-                        ClockTimez.runinT = true;
-                        new Thread().sleep(1000);
-                        new Timer().setDaemon(true);
-                        new Timer().start();
 
-
-                    } catch (InterruptedException ex) {
-                        throw new RuntimeException(ex);
-                    }
-
-
-                }
 
 
             }});
@@ -83,22 +71,21 @@ public class Gui extends JFrame {
         buttonTimerStop.setForeground(new Color(154, 147, 154, 255));
         framzz.add(buttonTimerStop);
         buttonTimerStop.setVisible(true);
-        buttonTimerStop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+        buttonTimerStop.addActionListener(e -> {
 
-                if (((JButton) e.getSource()).getText().equals("Pause")) {
+            if (((JButton) e.getSource()).getText().equals("Pause")) {
 
-                    ClockTimez.runinT = false;
 
-                    ClockTimez.pauseT = true;
+                ClockTimez.pauseT = true;
 
-            }}});
+                ClockTimez.runinT = false;
+
+        }});
 
 
         buttonTimerReset = new JButton("Reset");
         buttonTimerReset.setSize(100,50);
-        buttonTimerReset.setLocation(150,250);
+        buttonTimerReset.setLocation(300,300);
         buttonTimerReset.setBackground(new Color(0, 17, 52, 255));
         buttonTimerReset.setForeground(new Color(154, 147, 154, 255));
         framzz.add(buttonTimerReset);
@@ -110,20 +97,15 @@ public class Gui extends JFrame {
                 ClockTimez.runinT = false;
                 ClockTimez.pauseT = false;
 
+                ClockTimez.iiii = 0;
 
-                try {
-                    new Thread().sleep(1000);
-                } catch (InterruptedException ex) {
-                    throw new RuntimeException(ex);
-                }
 
-                ClockTimez.pauseT = false;
 
                 ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
 
                 Gui.area.setText(ClockTimez.counterZahl + ":");
                 Gui.area2.setText("00");
-                ClockTimez.runinT = true;
+
 
 
             }});

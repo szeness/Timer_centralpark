@@ -1,33 +1,47 @@
-import javax.sound.sampled.*;
-import java.io.File;
-import java.io.IOException;
 
 
 public class Timer extends Thread {
 
 
 
+    public static int mainCount = 0;
     public void run() {
 
 
         long timez = !Gui.textfield1.getText().isEmpty() ? Long.parseLong(Gui.textfield1.getText()) : 0;
 
-        if (timez != 0 && ClockTimez.runinT) {
+        if (timez != 0) {
             try {
 
 
                 new ClockTimez().setDaemon(true);
                 new ClockTimez().start();
 
-                sleep(60000 * timez + 1800);
-                trackPlayz();
+                for(int i =mainCount;i<12000 * timez;i++) {
+                    if (ClockTimez.runinT) {
+                        if (!ClockTimez.pauseT){
+                            mainCount = 0;
+                            sleep(5);
 
-                for (int i = 0; i < 10; i++) {
+                        } else {
+                            mainCount = i;
+                            break;
+                        }
+                    }else{
+                        if(!ClockTimez.pauseT) {
+                            mainCount = 0;
+                            break;
 
-                    sleep(10000);
-                    trackPlayz();
-
+                        }
+                    }
                 }
+
+                if(!ClockTimez.pauseT) {
+                    Gui.area2.setText("");
+                    Gui.area.setText("fin");
+                    trackPlayz();
+                }
+
 
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -37,7 +51,7 @@ public class Timer extends Thread {
     }
 
     public static void trackPlayz(){
-        File sound = new File("C:/Users/Student/Desktop/syam.wav");
+        /*File sound = new File("C:/Users/Student/Desktop/syam.wav");
         AudioInputStream audioStream = null;
         try {
             audioStream = AudioSystem.getAudioInputStream(sound);
@@ -61,6 +75,6 @@ public class Timer extends Thread {
         }
         clip.start();
         while (clip.isActive())
-            clip.stop();
+            clip.stop();*/
     }
 }
