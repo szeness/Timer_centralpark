@@ -79,7 +79,7 @@ public class Gui extends JFrame {
 
 
 
-        buttonTimerStop = new JButton("Exit");
+        buttonTimerStop = new JButton("Stop");
         buttonTimerStop.setSize(100,50);
         buttonTimerStop.setLocation(300,250);
         buttonTimerStop.setBackground(new Color(0, 17, 52, 255));
@@ -90,7 +90,7 @@ public class Gui extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (((JButton) e.getSource()).getText().equals("Exit")) {
+                if (((JButton) e.getSource()).getText().equals("Stop")) {
 
                     ClockTimez.onT = false;
 
