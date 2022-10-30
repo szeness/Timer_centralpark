@@ -52,12 +52,14 @@ public class Gui extends JFrame {
                 if (((JButton) e.getSource()).getText().equals("Start Timer")) {
 
 
-
-
-
                     if (ClockTimez.onT){
                         ClockTimez.onT = false;
+
+
+
                         try {
+                            Gui.area2.setText("");
+                            Gui.area.setText("");
                             new Thread().sleep(1000);
                             new Timer().setDaemon(true);
                             new Timer().start();

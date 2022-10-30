@@ -32,7 +32,8 @@ public class ClockTimez extends Thread {
                                 } else {
                                     Gui.area2.setText(Integer.toString(k));
                                 }
-                                sleep(1000);
+                                if (onT)
+                                    sleep(1000);
                             }
                         }
                     }

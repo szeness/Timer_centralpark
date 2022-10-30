@@ -14,6 +14,7 @@ public class Timer extends Thread {
 
         if (timez != 0) {
             try {
+
                 ClockTimez.onT = true;
                 new ClockTimez().setDaemon(true);
                 new ClockTimez().start();
