@@ -46,42 +46,36 @@ public class Gui extends JFrame {
         buttonTimer.setForeground(new Color(154, 147, 154, 255));
         framzz.add(buttonTimer);
         buttonTimer.setVisible(true);
-        buttonTimer.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (((JButton) e.getSource()).getText().equals("Start Timer")) {
+        buttonTimer.addActionListener(e -> {
 
+            if (((JButton) e.getSource()).getText().equals("Start Timer")) {
 
-                    if (ClockTimez.onT){
-                        ClockTimez.onT = false;
+                if(ClockTimez.resetT) {
+                    ClockTimez.onT = true;
+                    new Timer().setDaemon(true);
+                    new Timer().start();
 
-
-
-                        try {
-                            Gui.area2.setText("");
-                            Gui.area.setText("");
-                            new Thread().sleep(1000);
-                            new Timer().setDaemon(true);
-                            new Timer().start();
-                        } catch (InterruptedException ex) {
-                            throw new RuntimeException(ex);
-                        }
-
-
-
-
-                    }else {
+                }  else {
+                    try {
                         ClockTimez.onT = true;
+                        new Thread().sleep(1000);
                         new Timer().setDaemon(true);
                         new Timer().start();
+
+
+                    } catch (InterruptedException ex) {
+                        throw new RuntimeException(ex);
                     }
 
 
-                }}});
+                }
+
+
+            }});
 
 
 
-        buttonTimerStop = new JButton("Stop");
+        buttonTimerStop = new JButton("Pause");
         buttonTimerStop.setSize(100,50);
         buttonTimerStop.setLocation(300,250);
         buttonTimerStop.setBackground(new Color(0, 17, 52, 255));
@@ -92,11 +86,11 @@ public class Gui extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                if (((JButton) e.getSource()).getText().equals("Stop")) {
+                if (((JButton) e.getSource()).getText().equals("Pause")) {
 
                     ClockTimez.onT = false;
 
-
+                    ClockTimez.resetT = true;
 
             }}});
 
