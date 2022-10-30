@@ -3,21 +3,20 @@
 public class Timer extends Thread {
 
 
-
     public static int mainCount = 0;
+
     public void run() {
 
 
         long timez = !Gui.textfield1.getText().isEmpty() ? Long.parseLong(Gui.textfield1.getText()) : 0;
 
         if (timez != 0) {
-            try {
 
 
-                new ClockTimez().setDaemon(true);
-                new ClockTimez().start();
+            new ClockTimez().setDaemon(true);
+            new ClockTimez().start();
 
-                for(int i =mainCount;i<12000 * timez;i++) {
+          /*      for(int i =mainCount;i<12000 * timez;i++) {
                     if (ClockTimez.runinT) {
                         if (!ClockTimez.pauseT){
                             mainCount = 0;
@@ -35,18 +34,14 @@ public class Timer extends Thread {
                         }
                     }
                 }
+*/
 
-
-
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
 
         }
+
     }
 
-    public static void trackPlayz(){
+        public static void trackPlayz() {
         /*File sound = new File("C:/Users/Student/Desktop/syam.wav");
         AudioInputStream audioStream = null;
         try {
@@ -72,5 +67,6 @@ public class Timer extends Thread {
         clip.start();
         while (clip.isActive())
             clip.stop();*/
-    }
+        }
+
 }
