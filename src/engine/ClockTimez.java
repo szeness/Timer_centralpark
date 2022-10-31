@@ -4,8 +4,15 @@ package engine;
 import gui.Gui;
 import sounds.WaveFile;
 
+import java.time.LocalDateTime;
+
+import static engine.RLTimeEng.LOL;
+
 public class ClockTimez extends Thread {
 
+
+    public static int stat = 59;
+    public static int seczZeit;
     public static boolean runinT,pauseT;
     public static int iiii,c=200;
     public static int counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
@@ -17,12 +24,8 @@ public class ClockTimez extends Thread {
 
         try {if (!pauseT) {
 
-            countingAlgo();
 
-            if(!pauseT) {
 
-                finTime(3);
-            }
 
         }else{
 
@@ -40,13 +43,7 @@ public class ClockTimez extends Thread {
         if (runinT) {
 
             for (int j = counterZahl; j >= 0; j--) {if (runinT) {
-                    for (int i = iiii; i < c; i++) {if (runinT) {
 
-                            sleep(5);
-
-                        } else {if (pauseT) {break;}
-                        }
-                    }
 
                     if (Integer.toString(counterZahl).length() == 1) {
                         Gui.area.setText("0" + (counterZahl + ":"));
@@ -65,60 +62,50 @@ public class ClockTimez extends Thread {
                             } else {
                                 Gui.area2.setText(Integer.toString(k));
                             }
-                            for (int i = iiii; i < c; i++) {if (runinT) {
 
-                                    sleep(5);
-
-                                } else {if (pauseT) {break;}
-                                }
-                            }
 
                         }
                     }
                 }
             }}}
-    public static void countingAlgo() throws InterruptedException {
+    public static void countingAlgo()  {
 
-        for (int i = iiii; i < c; i++) {if (runinT) {
+            if (runinT) {
 
-                sleep(5);
 
-            } else {if (pauseT) {break;}
+            Gui.area.setText(counterZahl + ":");
+
+            if (Integer.toString(counterZahl).length() == 1) {
+                Gui.area.setText("0" + (counterZahl + ":"));
+            } else {
+                Gui.area.setText(counterZahl + ":");
             }
-        }
 
-        for (int j = 0; j <= counterZahl; j++) {if (runinT) {
 
-                Gui.area.setText(counterZahl-- + ":");
+                    Gui.area2.setLocation(115 + ((Gui.area.getText().length() - 1) * 15), 208);
 
-                if (Integer.toString(counterZahl).length() == 1) {
-                    Gui.area.setText("0" + (counterZahl + ":"));
-                } else {
+                    if (Integer.toString(stat).length() == 1) {
+                        Gui.area2.setText("0" + (stat));
+                    } else {
+                        Gui.area2.setText(Integer.toString(stat));
+                    }
+
+
+                stat--;
+                if(stat == 0) {
+                    stat = 59;
+                    counterZahl = counterZahl>0 ? --counterZahl : 0;
                     Gui.area.setText(counterZahl + ":");
                 }
-
-
-                for (int k = 59; k >= 0; k--) {if (runinT) {
-
-                        Gui.area2.setLocation(115 + ((Gui.area.getText().length() - 1) * 15), 208);
-
-                        if (Integer.toString(k).length() == 1) {
-                            Gui.area2.setText("0" + (k));
-                        } else {
-                            Gui.area2.setText(Integer.toString(k));
-                        }
-                        for (int i = iiii; i < c; i++) {if (runinT) {
-
-                                sleep(5);
-
-                            } else {if (pauseT) {break;}
-                            }
-                        }
-                    }
-                }
             }
+
         }
-    }
+
+
+
+
+
+
     public static void finTime(int loops) throws InterruptedException {
 
         Gui.area2.setText("");
@@ -131,6 +118,12 @@ public class ClockTimez extends Thread {
 
 
     }
+
+
+
+
+
+
 
 
 }

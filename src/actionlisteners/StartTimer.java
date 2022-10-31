@@ -1,12 +1,15 @@
 package actionlisteners;
 
 import engine.ClockTimez;
+import engine.RLTimeEng;
 import sounds.WaveFile;
 import gui.Gui;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static engine.ClockTimez.counterZahl;
 
 public class StartTimer implements ActionListener {
     @Override
@@ -26,10 +29,21 @@ public class StartTimer implements ActionListener {
 
             else{
 
+               counterZahl = counterZahl>0 ? --counterZahl : 0;
+
+                RLTimeEng.LOL=true;
                 ClockTimez.runinT = true;
+
+
+                RLTimeEng rlT = new RLTimeEng();
+
+                rlT.setDaemon(true);
+                rlT.start();
+
 
                 new ClockTimez().setDaemon(true);
                 new ClockTimez().start();
+
 
 
 
