@@ -18,6 +18,8 @@ public class PauseTimer implements ActionListener {
             if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive())
                 WaveFile.soundclip.stop();
 
+            ClockTimez.counterZahl++;
+
             if(ClockTimez.runinT)
             {
 

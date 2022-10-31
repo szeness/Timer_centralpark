@@ -52,7 +52,7 @@ public class RLTimeEng extends Thread{
 
         if(nowSec >= seczZeit) {
             System.out.println("finfin");
-            finTime(1);
+            finTime(2);
         }
         return nowSec;
     }
@@ -63,7 +63,7 @@ public class RLTimeEng extends Thread{
         int startS = date.toLocalTime().toSecondOfDay();
         int dur = min * 60;
         seczZeit = startS + dur;
-        System.out.println(seczZeit);
+        System.out.println("endesec = " + seczZeit);
 
     }
 

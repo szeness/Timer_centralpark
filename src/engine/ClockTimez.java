@@ -28,9 +28,6 @@ public class ClockTimez extends Thread {
         if (runinT) {
 
 
-
-
-
                 Gui.area.setText(counterZahl + ":");
 
                 if (Integer.toString(counterZahl).length() == 1) {
