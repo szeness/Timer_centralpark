@@ -99,7 +99,7 @@ public class Gui extends JFrame {
 
                 ClockTimez.runinT = false;
                 ClockTimez.pauseT = false;
-
+                ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText())  : 0;
                 ClockTimez.iiii = 0;
 
 

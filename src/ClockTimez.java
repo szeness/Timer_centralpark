@@ -15,7 +15,7 @@ public class ClockTimez extends Thread {
 
                 if (!pauseT) {
 
-                    counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText())  : 0;
+
 
 
                     for(int i = iiii;i<c;i++){
@@ -25,11 +25,11 @@ public class ClockTimez extends Thread {
 
                         }else{
                             if(pauseT) {
-                                iiii = i;
+
                                 break;
                             }
                         }
-                        iiii = 0;
+
 
                     }
                     for (int j = 1; j <= counterZahl; j++) {
@@ -63,11 +63,11 @@ public class ClockTimez extends Thread {
 
                                         }else{
                                             if(pauseT) {
-                                                iiii = i;
+
                                                 break;
                                             }
                                         }
-                                        iiii = 0;
+
                                     }
 
 
@@ -76,6 +76,15 @@ public class ClockTimez extends Thread {
                         }
 
                     }
+                    Gui.area2.setText("");
+                    Gui.area.setText("F I N");
+
+                    for (int i = 0; i < 3; i++) {
+                        Timer.trackPlayz();
+                        sleep(10000);
+                    }
+
+
 
 
 
@@ -84,7 +93,6 @@ public class ClockTimez extends Thread {
                     ClockTimez.pauseT = false;
                     if (runinT) {
 
-                        iiii = 0;
                         for (int j = counterZahl; j >= 0; j--) {
                             if (runinT) {
 
@@ -95,11 +103,11 @@ public class ClockTimez extends Thread {
 
                                     }else{
                                         if(pauseT) {
-                                            iiii = i;
+
                                             break;
                                         }
                                     }
-                                    iiii = 0;
+
                                 }
 
 
@@ -128,11 +136,11 @@ public class ClockTimez extends Thread {
 
                                             }else{
                                                 if(pauseT) {
-                                                    iiii = i;
+
                                                     break;
                                                 }
                                             }
-                                            iiii = 0;
+
 
                                         }
 
