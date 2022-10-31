@@ -76,14 +76,16 @@ public class ClockTimez extends Thread {
                         }
 
                     }
-                    Gui.area2.setText("");
-                    Gui.area.setText("F I N");
+                    if(!pauseT) {
 
-                    for (int i = 0; i < 3; i++) {
-                        Timer.trackPlayz();
-                        sleep(10000);
+                        Gui.area2.setText("");
+                        Gui.area.setText("F I N");
+
+                        for (int i = 0; i < 3; i++) {
+                            Timer.trackPlayz();
+                            sleep(10000);
+                        }
                     }
-
 
 
 

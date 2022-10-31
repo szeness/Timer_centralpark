@@ -86,15 +86,18 @@ public class Gui extends JFrame {
 
             if (((JButton) e.getSource()).getText().equals("Pause")) {
 
-                if(Timer.soundclip!=null && Timer.soundclip.isActive())
-                     Timer.soundclip.stop();
-
                 if(!ClockTimez.runinT);
                 else{
 
                     ClockTimez.pauseT = true;
                     ClockTimez.runinT = false;
+
                 }
+
+                if(Timer.soundclip!=null && Timer.soundclip.isActive())
+                     Timer.soundclip.stop();
+
+
             }
         });
 
