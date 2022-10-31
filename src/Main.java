@@ -1,9 +1,10 @@
+import java.io.UnsupportedEncodingException;
+
+
 public class Main {
 
-    public static String path = System.getProperty("user.dir");
-    public static void main(String[] args)  {
 
-
+    public static void main(String[] args) throws UnsupportedEncodingException {
 
 
 

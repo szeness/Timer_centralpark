@@ -1,16 +1,35 @@
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.util.Objects;
 
 public class Timer extends Thread {
 
     public static Clip soundclip;
 
+    public static String path;
+
+    static {
+        try {
+            path = String.valueOf(Timer.class.getResource("/img/syam.wav").toURI());
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    ;
+
+
+
     public static void trackPlayz() {
 
         try {
 
-            File sound = new File(Main.path+"/syam.wav");
+            System.out.println(path);
+
+            File sound = new File(Timer.class.getResource("/img/syam.wav").toURI());
+
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(sound);
             soundclip = AudioSystem.getClip();
             soundclip.open(audioStream);
@@ -23,6 +42,8 @@ public class Timer extends Thread {
             } catch (UnsupportedAudioFileException e) {e.printStackTrace();
             } catch (NullPointerException e) {
             System.out.println("file nicht gefunden");
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
         }
 
     }

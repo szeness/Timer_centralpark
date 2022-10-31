@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.UnsupportedEncodingException;
 import java.util.Objects;
 
 public class Gui extends JFrame {
@@ -69,9 +70,7 @@ public class Gui extends JFrame {
                         new Timer().start();
 
 
-
-
-            }}});
+                    }}});
 
 
 
@@ -86,16 +85,18 @@ public class Gui extends JFrame {
 
             if (((JButton) e.getSource()).getText().equals("Pause")) {
 
-                if(!ClockTimez.runinT);
-                else{
+                if(Timer.soundclip!=null && Timer.soundclip.isActive())
+                    Timer.soundclip.stop();
+
+                if(ClockTimez.runinT)
+                {
 
                     ClockTimez.pauseT = true;
                     ClockTimez.runinT = false;
 
                 }
 
-                if(Timer.soundclip!=null && Timer.soundclip.isActive())
-                     Timer.soundclip.stop();
+
 
 
             }
