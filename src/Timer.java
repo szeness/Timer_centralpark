@@ -4,41 +4,27 @@ import java.io.IOException;
 
 public class Timer extends Thread {
 
-
-    public static int mainCount = 0;
+    public static Clip soundclip;
 
     public static void trackPlayz() {
+
         try {
 
-
-
             File sound = new File(Main.path+"/syam.wav");
-            AudioInputStream audioStream = null;
-            try {
-                audioStream = AudioSystem.getAudioInputStream(sound);
-            } catch (UnsupportedAudioFileException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            Clip clip = null;
-            try {
-                clip = AudioSystem.getClip();
-            } catch (LineUnavailableException e) {
-                e.printStackTrace();
-            }
-            try {
-                clip.open(audioStream);
-            } catch (LineUnavailableException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            clip.start();
-            while (clip.isActive())
-                clip.stop();
+            AudioInputStream audioStream = AudioSystem.getAudioInputStream(sound);
+            soundclip = AudioSystem.getClip();
+            soundclip.open(audioStream);
 
-        }catch (NullPointerException e) {}
+            soundclip.start();
+
+
+
+            } catch (LineUnavailableException e) {e.printStackTrace();} catch (IOException e) {e.printStackTrace();
+            } catch (UnsupportedAudioFileException e) {e.printStackTrace();
+            } catch (NullPointerException e) {
+            System.out.println("file nicht gefunden");
+        }
+
     }
 
     public void run() {
@@ -78,6 +64,4 @@ public class Timer extends Thread {
     }
 
 
-
-
-}
+    }

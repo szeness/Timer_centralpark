@@ -32,13 +32,13 @@ public class ClockTimez extends Thread {
 
 
                     }
-                    for (int j = 1; j <= counterZahl; j++) {
+                    for (int j = 0; j <= counterZahl; j++) {
                         if (runinT) {
 
                             Gui.area.setText(counterZahl-- + ":");
 
 
-                            ;
+
                             if (Integer.toString(counterZahl).length() == 1) {
                                 Gui.area.setText("0" + (counterZahl + ":"));
                             } else {

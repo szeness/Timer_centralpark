@@ -51,16 +51,27 @@ public class Gui extends JFrame {
 
             if (((JButton) e.getSource()).getText().equals("Start Timer")) {
 
+                    if (Gui.textfield1.getText().equals("jj")) {
+                       try {
+                            if(!Timer.soundclip.isActive())
+                                Timer.trackPlayz();
+                       }catch(NullPointerException exception){
+                           System.out.println("alles gut");
+                           Timer.trackPlayz();
+                       }
+                    }
 
-                    ClockTimez.runinT = true;
+                    else{
 
-                    new Timer().setDaemon(true);
-                    new Timer().start();
+                        ClockTimez.runinT = true;
+
+                        new Timer().setDaemon(true);
+                        new Timer().start();
 
 
 
 
-            }});
+            }}});
 
 
 
@@ -74,6 +85,9 @@ public class Gui extends JFrame {
         buttonTimerStop.addActionListener(e -> {
 
             if (((JButton) e.getSource()).getText().equals("Pause")) {
+
+                if(Timer.soundclip!=null && Timer.soundclip.isActive())
+                     Timer.soundclip.stop();
 
                 if(!ClockTimez.runinT);
                 else{
@@ -95,6 +109,9 @@ public class Gui extends JFrame {
         buttonTimerReset.addActionListener(e -> {
 
             if (((JButton) e.getSource()).getText().equals("Reset")) {
+                if(Timer.soundclip!=null && Timer.soundclip.isActive())
+                    Timer.soundclip.stop();
+
 
 
                 ClockTimez.runinT = false;
