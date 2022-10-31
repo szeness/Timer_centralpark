@@ -1,8 +1,16 @@
+package engine;
+
+
+import gui.Gui;
+import sounds.WaveFile;
+
 public class ClockTimez extends Thread {
 
     public static boolean runinT,pauseT;
-    public static int iiii,c=195;
-    static int counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
+    public static int iiii,c=200;
+    public static int counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
+
+    //public long timez = !Gui.textfield1.getText().isEmpty() ? Long.parseLong(Gui.textfield1.getText()) : 0;
 
 
     public void run() {
@@ -16,7 +24,9 @@ public class ClockTimez extends Thread {
                 finTime(3);
             }
 
-        }else{  pauseAlgo();  }
+        }else{
+
+            pauseAlgo();  }
 
 
         }catch(InterruptedException ignored){}
@@ -115,7 +125,7 @@ public class ClockTimez extends Thread {
         Gui.area.setText("F I N");
 
           for (int i = 0; i < loops; i++) {
-            Timer.trackPlayz();
+            WaveFile.trackPlayz();
             sleep(10000);
          }
 

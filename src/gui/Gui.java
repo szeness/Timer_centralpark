@@ -1,8 +1,11 @@
+package gui;
+
+import actionlisteners.PauseTimer;
+import actionlisteners.ResetTimer;
+import actionlisteners.StartTimer;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.UnsupportedEncodingException;
 import java.util.Objects;
 
 public class Gui extends JFrame {
@@ -32,46 +35,20 @@ public class Gui extends JFrame {
         framzz.setLocationRelativeTo(null);
 
 
-
         textfield1 = new JTextField();
         textfield1.setSize(50,20);
         textfield1.setLocation(200,100);
         framzz.add(textfield1);
         textfield1.setVisible(true);
 
-
-
-        buttonTimer = new JButton("Start Timer");
+        buttonTimer = new JButton("Start");
         buttonTimer.setSize(100,50);
         buttonTimer.setLocation(300,200);
         buttonTimer.setBackground(new Color(0, 17, 52, 255));
         buttonTimer.setForeground(new Color(154, 147, 154, 255));
         framzz.add(buttonTimer);
         buttonTimer.setVisible(true);
-        buttonTimer.addActionListener(e -> {
-
-            if (((JButton) e.getSource()).getText().equals("Start Timer")) {
-
-                    if (Gui.textfield1.getText().equals("jj")) {
-                       try {
-                            if(!Timer.soundclip.isActive())
-                                Timer.trackPlayz();
-                       }catch(NullPointerException exception){
-                           System.out.println("alles gut");
-                           Timer.trackPlayz();
-                       }
-                    }
-
-                    else{
-
-                        ClockTimez.runinT = true;
-
-                        new Timer().setDaemon(true);
-                        new Timer().start();
-
-
-                    }}});
-
+        buttonTimer.addActionListener(new StartTimer());
 
 
         buttonTimerStop = new JButton("Pause");
@@ -81,26 +58,7 @@ public class Gui extends JFrame {
         buttonTimerStop.setForeground(new Color(154, 147, 154, 255));
         framzz.add(buttonTimerStop);
         buttonTimerStop.setVisible(true);
-        buttonTimerStop.addActionListener(e -> {
-
-            if (((JButton) e.getSource()).getText().equals("Pause")) {
-
-                if(Timer.soundclip!=null && Timer.soundclip.isActive())
-                    Timer.soundclip.stop();
-
-                if(ClockTimez.runinT)
-                {
-
-                    ClockTimez.pauseT = true;
-                    ClockTimez.runinT = false;
-
-                }
-
-
-
-
-            }
-        });
+        buttonTimerStop.addActionListener(new PauseTimer());
 
 
         buttonTimerReset = new JButton("Reset");
@@ -110,29 +68,7 @@ public class Gui extends JFrame {
         buttonTimerReset.setForeground(new Color(154, 147, 154, 255));
         framzz.add(buttonTimerReset);
         buttonTimerReset.setVisible(true);
-        buttonTimerReset.addActionListener(e -> {
-
-            if (((JButton) e.getSource()).getText().equals("Reset")) {
-                if(Timer.soundclip!=null && Timer.soundclip.isActive())
-                    Timer.soundclip.stop();
-
-
-
-                ClockTimez.runinT = false;
-                ClockTimez.pauseT = false;
-                ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText())  : 0;
-                ClockTimez.iiii = 0;
-
-
-
-                ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
-
-                Gui.area.setText(ClockTimez.counterZahl + ":");
-                Gui.area2.setText("00");
-
-
-
-            }});
+        buttonTimerReset.addActionListener(new ResetTimer());
 
         area = new JTextArea();
         area.setSize(100,50);
