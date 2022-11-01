@@ -42,9 +42,10 @@ public class StartTimer implements ActionListener {
                     System.out.println("alles gut");
                     WaveFile.trackPlayz();
                 }
-                Gui.area.setText("(`,°)");
+
             }else{
 
+                 Gui.area.setText("(`,°)");
 
                  if(!toggledStart) {
 
