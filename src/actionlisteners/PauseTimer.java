@@ -14,7 +14,7 @@ import static engine.ClockTimez.seczZeit;
 public class PauseTimer implements ActionListener {
 
     public static int pauseDiff;
-    public static boolean toggle;
+    public static boolean pauseToggled;
 
 
     @Override
@@ -22,12 +22,16 @@ public class PauseTimer implements ActionListener {
 
         if (((JButton) e.getSource()).getText().equals("Pause")) {
 
+            if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive())
+                WaveFile.soundclip.stop();
+                WaveFile.musTogl = false;
 
-            if(!toggle) {
+            if(!pauseToggled && StartTimer.toggledStart) {
+
+                pauseToggled = true;
 
                 StartTimer.toggledStart = false;
 
-                toggle = true;
 
                 ClockTimez.pauseT = true;
                 ClockTimez.runinT = false;
@@ -37,8 +41,7 @@ public class PauseTimer implements ActionListener {
 
 
             }
-            if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive())
-                WaveFile.soundclip.stop();
+
 
         }
 

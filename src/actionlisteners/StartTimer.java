@@ -34,23 +34,26 @@ public class StartTimer implements ActionListener {
 
             if (Gui.textfield1.getText().equals("jj")) {
                 try {
-                    if (!WaveFile.soundclip.isActive())
-                        WaveFile.trackPlayz();
+
+                    WaveFile.trackPlayz();
+                     WaveFile.musTogl = true;
+                   System.out.println("wtf");
                 } catch (NullPointerException exception) {
-                    System.out.println("alles gut");
+                    throw exception;
+                    //System.out.println("alles gut");
                 }
 
             }else{
 
                  Gui.area.setText("(`,°)");
 
-                 if(!toggledStart) {
+                 if(!toggledStart && !Gui.textfield1.getText().isEmpty()) {
 
-                    if (!PauseTimer.toggle)
+                    if (!PauseTimer.pauseToggled)
                         rlTimeGetStart(counterZahl);
                     else {
                         startDiffCounter();
-                        PauseTimer.toggle = false;
+                        PauseTimer.pauseToggled = false;
                         ClockTimez.pauseT = false;
                     }
 

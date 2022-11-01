@@ -8,7 +8,7 @@ import sounds.WaveFile;
 public class ClockTimez extends Thread {
 
 
-    public static int stat = 59;
+    public static int stat = 0;
     public static int seczZeit;
     public static boolean runinT,pauseT;
     public static int counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
@@ -23,17 +23,15 @@ public class ClockTimez extends Thread {
 
         if (runinT) {
 
-
-
-
+            if (stat == 0) {stat = 59;
+                counterZahl = counterZahl > 0 ? --counterZahl : 0;
+            }else stat--;
 
 
             setFormatOutputs();
 
 
-            if (stat == 0) {stat = 59;
-                counterZahl = counterZahl > 0 ? --counterZahl : 0;
-            }else stat--;
+
         }
     }
 
@@ -67,6 +65,7 @@ public class ClockTimez extends Thread {
           for (int i = 0; i < loops; i++) {
             WaveFile.trackPlayz();
             sleep(10000);
+            WaveFile.musTogl = false;
          }
 
 

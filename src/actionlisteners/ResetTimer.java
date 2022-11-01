@@ -10,11 +10,15 @@ public class ResetTimer implements ActionListener  {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if (((JButton) e.getSource()).getText().equals("Reset")) {
+        if (((JButton) e.getSource()).getText().equals("Reset") ) {
 
-            if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive())
+
+
+            if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive()) {
                 WaveFile.soundclip.stop();
-            else {
+                WaveFile.musTogl = false;
+            }
+            else if(!Gui.area2.getText().isEmpty()){
 
                 ClockTimez.runinT = false;
                 ClockTimez.pauseT = false;

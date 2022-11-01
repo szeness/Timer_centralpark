@@ -10,31 +10,40 @@ import java.net.URISyntaxException;
 public class WaveFile extends Thread {
 
     public static Clip soundclip;
+    public static boolean musTogl;
     public static String path = System.getProperty("user.dir");
 
-
+    public static File sound = new File(path+"\\out\\production\\timerLAc\\sounds/syam.wav");
 
 
     public static void trackPlayz() {
 
         try {
 
-            System.out.println(path);
 
-            File sound = new File(path+"\\out\\production\\timerLAc\\sounds/syam.wav");
-
-            AudioInputStream audioStream = AudioSystem.getAudioInputStream(sound);
-            soundclip = AudioSystem.getClip();
-            soundclip.open(audioStream);
-
-            soundclip.start();
+            if (!musTogl) {
+                musTogl = true;
+                System.out.println(path);
 
 
+                AudioInputStream audioStream = AudioSystem.getAudioInputStream(sound);
+                soundclip = AudioSystem.getClip();
+                soundclip.open(audioStream);
 
-        } catch (LineUnavailableException | UnsupportedAudioFileException |
-                 IOException e) {e.printStackTrace();} catch (NullPointerException e) {
-            System.out.println("file nicht gefunden");
-        }
+                soundclip.start();
+
+
+
+
+
+            }
+            } catch(LineUnavailableException | UnsupportedAudioFileException |
+                    IOException e){
+                e.printStackTrace();
+            } catch(NullPointerException e){
+                System.out.println("file nicht gefunden");
+            }
+
 
     }
 
