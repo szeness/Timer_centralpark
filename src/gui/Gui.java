@@ -20,7 +20,7 @@ public class Gui extends JFrame {
     public static JTextPane panej;
     public static ImageIcon bg2p = new ImageIcon(Objects.requireNonNull(Gui.class.getResource
             ("img/241295199_10227674595196311_8378346888603849515_n.jpg")));
-    public JButton buttonTimerStop,buttonTimerReset,buttonTimer;
+    public static JButton buttonTimerStop,buttonTimerReset,buttonTimer;
     public JLabel wp;
     public JFrame framzz;
 
@@ -45,7 +45,7 @@ public class Gui extends JFrame {
 
         buttonTimer = new JButton("Start");
         buttonTimer.setSize(100,50);
-        buttonTimer.setLocation(300,200);
+        buttonTimer.setLocation(268,200);
         buttonTimer.setBackground(new Color(196, 188, 98, 255));
         buttonTimer.setForeground(new Color(54, 147, 154, 255));
         framzz.add(buttonTimer);
@@ -55,7 +55,7 @@ public class Gui extends JFrame {
 
         buttonTimerStop = new JButton("Pause");
         buttonTimerStop.setSize(100,50);
-        buttonTimerStop.setLocation(300,250);
+        buttonTimerStop.setLocation(268,250);
         buttonTimerStop.setBackground(new Color(178, 105, 153, 255));
         buttonTimerStop.setForeground(new Color(76, 167, 173, 255));
         framzz.add(buttonTimerStop);
@@ -65,7 +65,7 @@ public class Gui extends JFrame {
 
         buttonTimerReset = new JButton("Reset");
         buttonTimerReset.setSize(100,50);
-        buttonTimerReset.setLocation(300,300);
+        buttonTimerReset.setLocation(268,300);
         buttonTimerReset.setBackground(new Color(123, 192, 177, 255));
         buttonTimerReset.setForeground(new Color(252, 140, 142, 255));
         framzz.add(buttonTimerReset);
@@ -86,14 +86,16 @@ public class Gui extends JFrame {
 
 
 
-        /*panej = new JTextPane();
+        panej = new JTextPane();
         doc = panej.getStyledDocument();
-        panej.setLocation(104,333);
+        panej.setLocation(195,178);
         panej.setSize(120,50);
         panej.setOpaque(false);
+        panej.setFocusable(false);
         panej.setContentType("text/html; charset=UTF-8");
         panej.setFont(new Font("Arial Unicode MS",Font.BOLD,12));
-        framzz.getContentPane().add(panej, BorderLayout.CENTER);*/
+        framzz.getContentPane().add(panej, BorderLayout.CENTER);
+        //ui.panej.setText("(`,°)");
 
 
 

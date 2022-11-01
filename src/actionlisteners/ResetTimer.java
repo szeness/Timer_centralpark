@@ -14,20 +14,23 @@ public class ResetTimer implements ActionListener  {
 
 
 
+
             if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive()) {
                 WaveFile.soundclip.stop();
                 WaveFile.musTogl = false;
             }
             else if(!Gui.area2.getText().isEmpty()){
+                Gui.panej.setText("\u21BA");
 
                 ClockTimez.runinT = false;
                 ClockTimez.pauseT = false;
-                StartTimer.toggledStart = false;
+
                 ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
 
                 Gui.area.setText(ClockTimez.counterZahl + ":");
                 ClockTimez.stat = 0;
                 Gui.area2.setText("00");
+                StartTimer.toggledStart = false;
             }
         }
 

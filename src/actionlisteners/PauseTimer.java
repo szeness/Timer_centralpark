@@ -1,6 +1,8 @@
 package actionlisteners;
 
 import engine.ClockTimez;
+import engine.RLTimeEng;
+import gui.Gui;
 import sounds.WaveFile;
 
 import javax.swing.*;
@@ -16,37 +18,6 @@ public class PauseTimer implements ActionListener {
     public static int pauseDiff;
     public static boolean pauseToggled;
 
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
-        if (((JButton) e.getSource()).getText().equals("Pause")) {
-
-            if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive())
-                WaveFile.soundclip.stop();
-                WaveFile.musTogl = false;
-
-            if(!pauseToggled && StartTimer.toggledStart) {
-
-                pauseToggled = true;
-
-                StartTimer.toggledStart = false;
-
-
-                ClockTimez.pauseT = true;
-                ClockTimez.runinT = false;
-
-
-                pauseDiffCounter();
-
-
-            }
-
-
-        }
-
-    }
-
     public static int pauseDiffCounter() {
 
         LocalDateTime date = LocalDateTime.now();
@@ -57,5 +28,40 @@ public class PauseTimer implements ActionListener {
 
         return(PauseTimer.pauseDiff);
     }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+
+        if (((JButton) e.getSource()).getText().equals("Pause")) {
+
+
+            if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive())
+                WaveFile.soundclip.stop();
+                WaveFile.musTogl = false;
+
+            if(!pauseToggled && StartTimer.toggledStart) {
+
+                ClockTimez.pauseT = true;
+                pauseToggled = true;
+
+                ClockTimez.runinT = false;
+                Gui.panej.setText(("\u2615"));
+
+
+                pauseDiffCounter();
+
+
+                StartTimer.toggledStart = false;
+
+
+            }
+
+
+        }
+
+    }
+
+
 
 }

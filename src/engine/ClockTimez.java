@@ -15,7 +15,6 @@ public class ClockTimez extends Thread {
 
 
 
-
     public void run() {}
 
 

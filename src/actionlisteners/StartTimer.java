@@ -32,9 +32,14 @@ public class StartTimer implements ActionListener {
 
         if (((JButton) e.getSource()).getText().equals("Start")) {
 
+
+            Gui.panej.setText("(`,°)");
+
+
+
             if (Gui.textfield1.getText().equals("jj")) {
                 try {
-
+                    Gui.panej.setText("(`,°)");
                     WaveFile.trackPlayz();
                      WaveFile.musTogl = true;
                    System.out.println("wtf");
@@ -45,9 +50,10 @@ public class StartTimer implements ActionListener {
 
             }else{
 
-                 Gui.area.setText("(`,°)");
+
 
                  if(!toggledStart && !Gui.textfield1.getText().isEmpty()) {
+                     toggledStart = true;
 
                     if (!PauseTimer.pauseToggled)
                         rlTimeGetStart(counterZahl);
@@ -63,8 +69,8 @@ public class StartTimer implements ActionListener {
 
                     rlT.setDaemon(true);
                     rlT.start();
+                     Gui.panej.setText(("\u25B6"));
 
-                    toggledStart = true;
 
                 }
 
