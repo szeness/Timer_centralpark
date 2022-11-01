@@ -23,34 +23,38 @@ public class ClockTimez extends Thread {
 
         if (runinT) {
 
+
+
+            setFormatOutputs();
+
+
+            if (stat == 0) {stat = 59;
+                counterZahl = counterZahl > 0 ? --counterZahl : 0;
+            }else stat--;
+        }
+    }
+
+
+        public static void setFormatOutputs() {
+
+
+
+            if (Integer.toString(counterZahl).length() == 1) {
+                Gui.area.setText("0" + (counterZahl + ":"));
+            } else {
                 Gui.area.setText(counterZahl + ":");
-
-                if (Integer.toString(counterZahl).length() == 1) {
-                    Gui.area.setText("0" + (counterZahl + ":"));
-                } else {
-                    Gui.area.setText(counterZahl + ":");
-                }
+            }
 
 
-                Gui.area2.setLocation(115 + ((Gui.area.getText().length() - 1) * 15), 208);
+            Gui.area2.setLocation(115 + ((Gui.area.getText().length() - 1) * 15), 208);
 
-                if (Integer.toString(stat).length() == 1) {
-                    Gui.area2.setText("0" + (stat));
-                } else {
-                    Gui.area2.setText(Integer.toString(stat));
-                }
-
-
-                stat--;
-                if (stat == 0) {
-                    stat = 59;
-                    counterZahl = counterZahl > 0 ? --counterZahl : 0;
-                    Gui.area.setText(counterZahl + ":");
-                }
+            if (Integer.toString(stat).length() == 1) {
+                Gui.area2.setText("0" + (stat));
+            } else {
+                Gui.area2.setText(Integer.toString(stat));
             }
 
         }
-
 
     public static void finTime(int loops) throws InterruptedException {
 

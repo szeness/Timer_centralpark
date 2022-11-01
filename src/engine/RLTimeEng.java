@@ -1,11 +1,13 @@
 package engine;
 import gui.Gui;
 import java.time.LocalDateTime;
+import java.util.Random;
+
 import static engine.ClockTimez.*;
 
 public class RLTimeEng extends Thread{
 
-
+    public static char e;
     @Override
     public void run() { try {
 
@@ -21,19 +23,20 @@ public class RLTimeEng extends Thread{
 
     public static void RlUmrechner() throws InterruptedException {
 
-        char e = 0;
+
 
         while (runinT) {
-
 
             int now = rlTimecheck();
             System.out.println(now);
 
             while (now == rlTimecheck()) {
+                sleep(100);
                 if(!pauseT) {
-                    sleep(70);
-                   // e = (char) new Random().nextInt(65,122);
-                    Gui.area3.append(String.valueOf(e++));
+                    e = (char) new Random().nextInt(0,15000);
+                    Gui.area3.append(String.valueOf(e));
+                    //Gui.panej.setText(String.valueOf(e));
+                    System.out.println(e);
                     if(Gui.area3.getText().length() > 9)
                         Gui.area3.setText("");
                 }

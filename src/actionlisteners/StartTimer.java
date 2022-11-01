@@ -46,7 +46,6 @@ public class StartTimer implements ActionListener {
 
                  if(!toggledStart) {
 
-
                     if (!PauseTimer.toggle)
                         rlTimeGetStart(counterZahl);
                     else {
@@ -57,17 +56,12 @@ public class StartTimer implements ActionListener {
 
                     ClockTimez.runinT = true;
 
-                    counterZahl = counterZahl>0 ? --counterZahl : 0;
-
                     RLTimeEng rlT = new RLTimeEng();
 
                     rlT.setDaemon(true);
                     rlT.start();
 
-                    new ClockTimez().setDaemon(true);
-                    new ClockTimez().start();
                     toggledStart = true;
-
 
                 }
 

@@ -22,7 +22,7 @@ public class ResetTimer implements ActionListener  {
                 ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
 
                 Gui.area.setText(ClockTimez.counterZahl + ":");
-                ClockTimez.stat = 59;
+                ClockTimez.stat = 0;
                 Gui.area2.setText("00");
             }
         }

@@ -5,15 +5,19 @@ import actionlisteners.ResetTimer;
 import actionlisteners.StartTimer;
 
 import javax.swing.*;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.util.Objects;
 
 public class Gui extends JFrame {
 
 
-
+    public static StyledDocument doc;
     public static JTextField textfield1;
     public static JTextArea area,area2,area3;
+    public static JTextPane panej;
     public static ImageIcon bg2p = new ImageIcon(Objects.requireNonNull(Gui.class.getResource
             ("img/241295199_10227674595196311_8378346888603849515_n.jpg")));
     public JButton buttonTimerStop,buttonTimerReset,buttonTimer;
@@ -81,6 +85,19 @@ public class Gui extends JFrame {
 
 
 
+
+        /*panej = new JTextPane();
+        doc = panej.getStyledDocument();
+        panej.setLocation(104,333);
+        panej.setSize(120,50);
+        panej.setOpaque(false);
+        panej.setContentType("text/html; charset=UTF-8");
+        panej.setFont(new Font("Arial Unicode MS",Font.BOLD,12));
+        framzz.getContentPane().add(panej, BorderLayout.CENTER);*/
+
+
+
+
         area2 = new JTextArea();
         area2.setSize(100,50);
         area2.setBackground(Color.BLACK);
@@ -91,10 +108,14 @@ public class Gui extends JFrame {
         area2.setVisible(true);
         framzz.add(area2);
 
+
+
+
         area3 = new JTextArea();
         area3.setSize(120,50);
         area3.setBackground(Color.BLACK);
-        area3.setFont(new Font("Arial", Font.LAYOUT_LEFT_TO_RIGHT, 15));
+
+        area3.setFont(new Font("Arial Unicode MS", Font.LAYOUT_LEFT_TO_RIGHT, 15));
         area3.setForeground(Color.lightGray);
         area3.setLocation(104,320);
         area3.setOpaque(false);
