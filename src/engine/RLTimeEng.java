@@ -1,5 +1,7 @@
 package engine;
 
+import actionlisteners.PauseTimer;
+
 import java.time.LocalDateTime;
 
 import static engine.ClockTimez.*;
@@ -12,7 +14,7 @@ public class RLTimeEng extends Thread{
     @Override
     public void run() {
 
-        rlTimeGetStart(counterZahl);
+
 
         try {
 
@@ -30,16 +32,16 @@ public class RLTimeEng extends Thread{
 
         while (runinT) {
 
-            LOL = false;
+
             int now = rlTimecheck();
+            System.out.println(now);
 
             while (now == rlTimecheck()) {
-                if (runinT)
-                    sleep(1);
+                sleep(1);
             }
-            LOL=true;
+
             countingAlgo();
-            System.out.println(now);
+
 
         }
 
@@ -66,5 +68,7 @@ public class RLTimeEng extends Thread{
         System.out.println("endesec = " + seczZeit);
 
     }
+
+
 
 }

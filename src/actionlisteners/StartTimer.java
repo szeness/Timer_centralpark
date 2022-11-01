@@ -8,10 +8,27 @@ import gui.Gui;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 
 import static engine.ClockTimez.counterZahl;
+import static engine.ClockTimez.seczZeit;
+import static engine.RLTimeEng.rlTimeGetStart;
 
 public class StartTimer implements ActionListener {
+
+    public static boolean toggledStart;
+
+    public static void startDiffCounter() {
+
+        int pausiertSEc = seczZeit;
+        LocalDateTime date = LocalDateTime.now();
+        int startSResume = date.toLocalTime().toSecondOfDay();
+        seczZeit  =  PauseTimer.pauseDiff + startSResume;
+        System.out.println("neue Endesec = " + seczZeit+ "   <"+(seczZeit-pausiertSEc) + " Sek. pausiert>");
+
+    }
+
+
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -19,35 +36,42 @@ public class StartTimer implements ActionListener {
 
             if (Gui.textfield1.getText().equals("jj")) {
                 try {
-                    if(!WaveFile.soundclip.isActive())
+                    if (!WaveFile.soundclip.isActive())
                         WaveFile.trackPlayz();
-                }catch(NullPointerException exception){
+                } catch (NullPointerException exception) {
                     System.out.println("alles gut");
                     WaveFile.trackPlayz();
                 }
-            }
+            }else{
 
-            else{
+                if(!toggledStart) {
 
-               counterZahl = counterZahl>0 ? --counterZahl : 0;
+                if (!PauseTimer.toggle)
+                    rlTimeGetStart(counterZahl);
+                else {
+                    startDiffCounter();
+                    PauseTimer.toggle = false;
+                    ClockTimez.pauseT = false;
+                }
 
-                RLTimeEng.LOL=true;
                 ClockTimez.runinT = true;
 
+                counterZahl = counterZahl>0 ? --counterZahl : 0;
 
                 RLTimeEng rlT = new RLTimeEng();
 
                 rlT.setDaemon(true);
                 rlT.start();
 
-
                 new ClockTimez().setDaemon(true);
                 new ClockTimez().start();
+                toggledStart = true;
 
 
-
-
-            }}
+                }else
+                    Gui.area.setText("(`,°)");
+            }
+        }
 
     }
 }

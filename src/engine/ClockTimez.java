@@ -4,9 +4,6 @@ package engine;
 import gui.Gui;
 import sounds.WaveFile;
 
-import java.time.LocalDateTime;
-
-import static engine.RLTimeEng.LOL;
 
 public class ClockTimez extends Thread {
 
@@ -14,7 +11,6 @@ public class ClockTimez extends Thread {
     public static int stat = 59;
     public static int seczZeit;
     public static boolean runinT,pauseT;
-    public static int iiii,c=200;
     public static int counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
 
 
