@@ -42,8 +42,8 @@ public class Gui extends JFrame {
         buttonTimer = new JButton("Start");
         buttonTimer.setSize(100,50);
         buttonTimer.setLocation(300,200);
-        buttonTimer.setBackground(new Color(0, 17, 52, 255));
-        buttonTimer.setForeground(new Color(154, 147, 154, 255));
+        buttonTimer.setBackground(new Color(196, 188, 98, 255));
+        buttonTimer.setForeground(new Color(54, 147, 154, 255));
         framzz.add(buttonTimer);
         buttonTimer.setVisible(true);
         buttonTimer.addActionListener(new StartTimer());
@@ -52,8 +52,8 @@ public class Gui extends JFrame {
         buttonTimerStop = new JButton("Pause");
         buttonTimerStop.setSize(100,50);
         buttonTimerStop.setLocation(300,250);
-        buttonTimerStop.setBackground(new Color(0, 17, 52, 255));
-        buttonTimerStop.setForeground(new Color(154, 147, 154, 255));
+        buttonTimerStop.setBackground(new Color(178, 105, 153, 255));
+        buttonTimerStop.setForeground(new Color(76, 167, 173, 255));
         framzz.add(buttonTimerStop);
         buttonTimerStop.setVisible(true);
         buttonTimerStop.addActionListener(new PauseTimer());
@@ -62,8 +62,8 @@ public class Gui extends JFrame {
         buttonTimerReset = new JButton("Reset");
         buttonTimerReset.setSize(100,50);
         buttonTimerReset.setLocation(300,300);
-        buttonTimerReset.setBackground(new Color(0, 17, 52, 255));
-        buttonTimerReset.setForeground(new Color(154, 147, 154, 255));
+        buttonTimerReset.setBackground(new Color(123, 192, 177, 255));
+        buttonTimerReset.setForeground(new Color(252, 140, 142, 255));
         framzz.add(buttonTimerReset);
         buttonTimerReset.setVisible(true);
         buttonTimerReset.addActionListener(new ResetTimer());

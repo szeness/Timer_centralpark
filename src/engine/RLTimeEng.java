@@ -4,10 +4,13 @@ import actionlisteners.PauseTimer;
 import gui.Gui;
 
 import java.time.LocalDateTime;
+import java.util.Random;
 
 import static engine.ClockTimez.*;
 
 public class RLTimeEng extends Thread{
+
+
 
 
     @Override
@@ -36,6 +39,7 @@ public class RLTimeEng extends Thread{
             while (now == rlTimecheck()) {
                 if(!pauseT) {
                     sleep(70);
+                   // e = (char) new Random().nextInt(65,122);
                     Gui.area3.append(String.valueOf(e++));
                     if(Gui.area3.getText().length() > 9)
                         Gui.area3.setText("");
