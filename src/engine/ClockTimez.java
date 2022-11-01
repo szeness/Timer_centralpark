@@ -25,6 +25,9 @@ public class ClockTimez extends Thread {
 
 
 
+
+
+
             setFormatOutputs();
 
 
