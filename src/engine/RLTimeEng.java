@@ -1,16 +1,9 @@
 package engine;
-
-import actionlisteners.PauseTimer;
 import gui.Gui;
-
 import java.time.LocalDateTime;
-import java.util.Random;
-
 import static engine.ClockTimez.*;
 
 public class RLTimeEng extends Thread{
-
-
 
 
     @Override
@@ -45,8 +38,8 @@ public class RLTimeEng extends Thread{
                         Gui.area3.setText("");
                 }
             }
-            countingAlgo();
 
+            countingAlgo();
         }
     }
 

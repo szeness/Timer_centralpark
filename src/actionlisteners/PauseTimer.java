@@ -33,7 +33,7 @@ public class PauseTimer implements ActionListener {
                 ClockTimez.runinT = false;
                 ClockTimez.counterZahl++;
 
-                pauseDiff = pauseDiffCounter();
+                pauseDiffCounter();
 
 
             }

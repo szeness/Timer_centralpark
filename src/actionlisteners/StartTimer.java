@@ -1,18 +1,16 @@
 package actionlisteners;
-
 import engine.ClockTimez;
 import engine.RLTimeEng;
 import sounds.WaveFile;
 import gui.Gui;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
-
 import static engine.ClockTimez.counterZahl;
 import static engine.ClockTimez.seczZeit;
 import static engine.RLTimeEng.rlTimeGetStart;
+
 
 public class StartTimer implements ActionListener {
 
@@ -40,7 +38,6 @@ public class StartTimer implements ActionListener {
                         WaveFile.trackPlayz();
                 } catch (NullPointerException exception) {
                     System.out.println("alles gut");
-                    WaveFile.trackPlayz();
                 }
 
             }else{
@@ -50,9 +47,6 @@ public class StartTimer implements ActionListener {
                  if(!toggledStart) {
 
 
-
-
-
                     if (!PauseTimer.toggle)
                         rlTimeGetStart(counterZahl);
                     else {
@@ -60,6 +54,7 @@ public class StartTimer implements ActionListener {
                         PauseTimer.toggle = false;
                         ClockTimez.pauseT = false;
                     }
+
                     ClockTimez.runinT = true;
 
                     counterZahl = counterZahl>0 ? --counterZahl : 0;
