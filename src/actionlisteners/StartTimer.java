@@ -42,34 +42,39 @@ public class StartTimer implements ActionListener {
                     System.out.println("alles gut");
                     WaveFile.trackPlayz();
                 }
+                Gui.area.setText("(`,°)");
             }else{
 
-                if(!toggledStart) {
 
-                if (!PauseTimer.toggle)
-                    rlTimeGetStart(counterZahl);
-                else {
-                    startDiffCounter();
-                    PauseTimer.toggle = false;
-                    ClockTimez.pauseT = false;
+                 if(!toggledStart) {
+
+
+
+
+
+                    if (!PauseTimer.toggle)
+                        rlTimeGetStart(counterZahl);
+                    else {
+                        startDiffCounter();
+                        PauseTimer.toggle = false;
+                        ClockTimez.pauseT = false;
+                    }
+                    ClockTimez.runinT = true;
+
+                    counterZahl = counterZahl>0 ? --counterZahl : 0;
+
+                    RLTimeEng rlT = new RLTimeEng();
+
+                    rlT.setDaemon(true);
+                    rlT.start();
+
+                    new ClockTimez().setDaemon(true);
+                    new ClockTimez().start();
+                    toggledStart = true;
+
+
                 }
 
-                ClockTimez.runinT = true;
-
-                counterZahl = counterZahl>0 ? --counterZahl : 0;
-
-                RLTimeEng rlT = new RLTimeEng();
-
-                rlT.setDaemon(true);
-                rlT.start();
-
-                new ClockTimez().setDaemon(true);
-                new ClockTimez().start();
-                toggledStart = true;
-
-
-                }else
-                    Gui.area.setText("(`,°)");
             }
         }
 

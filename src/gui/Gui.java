@@ -13,15 +13,13 @@ public class Gui extends JFrame {
 
 
     public static JTextField textfield1;
-    public static JTextArea area;
-    public static JTextArea area2;
+    public static JTextArea area,area2,area3;
     public static ImageIcon bg2p = new ImageIcon(Objects.requireNonNull(Gui.class.getResource
-                                         ("img/241295199_10227674595196311_8378346888603849515_n.jpg")));
-    public JButton buttonTimerStop;
-    public JButton buttonTimerReset;
+            ("img/241295199_10227674595196311_8378346888603849515_n.jpg")));
+    public JButton buttonTimerStop,buttonTimerReset,buttonTimer;
     public JLabel wp;
     public JFrame framzz;
-    public JButton buttonTimer;
+
 
 
 
@@ -92,6 +90,17 @@ public class Gui extends JFrame {
         area2.setFocusable(false);
         area2.setVisible(true);
         framzz.add(area2);
+
+        area3 = new JTextArea();
+        area3.setSize(120,50);
+        area3.setBackground(Color.BLACK);
+        area3.setFont(new Font("Arial", Font.LAYOUT_LEFT_TO_RIGHT, 15));
+        area3.setForeground(Color.lightGray);
+        area3.setLocation(104,320);
+        area3.setOpaque(false);
+        area3.setFocusable(false);
+        area3.setVisible(true);
+        framzz.add(area3);
 
 
 

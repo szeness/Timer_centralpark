@@ -1,6 +1,7 @@
 package engine;
 
 import actionlisteners.PauseTimer;
+import gui.Gui;
 
 import java.time.LocalDateTime;
 
@@ -9,26 +10,22 @@ import static engine.ClockTimez.*;
 public class RLTimeEng extends Thread{
 
 
-    public static boolean LOL;
-
     @Override
-    public void run() {
+    public void run() { try {
 
-
-
-        try {
 
             RlUmrechner();
 
 
 
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-
+        } catch (InterruptedException e) {throw new RuntimeException(e);}
     }
 
+
+
     public static void RlUmrechner() throws InterruptedException {
+
+        char e = 0;
 
         while (runinT) {
 
@@ -37,14 +34,16 @@ public class RLTimeEng extends Thread{
             System.out.println(now);
 
             while (now == rlTimecheck()) {
-                sleep(1);
+                if(!pauseT) {
+                    sleep(70);
+                    Gui.area3.append(String.valueOf(e++));
+                    if(Gui.area3.getText().length() > 9)
+                        Gui.area3.setText("");
+                }
             }
-
             countingAlgo();
 
-
         }
-
     }
 
     public static int rlTimecheck() throws InterruptedException {
@@ -68,7 +67,4 @@ public class RLTimeEng extends Thread{
         System.out.println("endesec = " + seczZeit);
 
     }
-
-
-
 }
