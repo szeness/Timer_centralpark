@@ -40,14 +40,13 @@ public class PauseTimer implements ActionListener {
                 WaveFile.musiTogl = false;
             }
 
-
             if (Gui.textfield1.getText().equals("jj")) {
 
                 Gui.panej.setText("\u25B6");
 
             }
 
-        }else if(!pauseToggled && StartTimer.toggledStart && !BlinkingFin.endeAni ) {
+            if (!pauseToggled && StartTimer.toggledStart && !BlinkingFin.endeAni) {
 
                 ClockTimez.runinT = false;
 
@@ -60,22 +59,14 @@ public class PauseTimer implements ActionListener {
 
                 pauseDiffCounter();
 
-
             }
-
-
-
-
 
 
             BlinkingFin.endeAni = false;
 
 
-
+        }
 
 
     }
-
-
-
 }
