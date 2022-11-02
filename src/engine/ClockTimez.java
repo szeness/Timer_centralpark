@@ -12,26 +12,28 @@ public class ClockTimez extends Thread {
     public static int seczZeit;
     public static boolean runinT,pauseT;
     public static int counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
-
+    static boolean toggleCA;
 
 
     public void run() {}
 
 
-    public static void countingAlgo()  {
-
-        if (runinT) {
-
-            if (stat == 0) {stat = 59;
-                counterZahl = counterZahl > 0 ? --counterZahl : 0;
-            }else stat--;
-
-
-            setFormatOutputs();
+    public static void countingAlgo() {
 
 
 
-        }
+            if (runinT) {
+
+                if (stat == 0) {
+                    stat = 59;
+                    counterZahl = counterZahl > 0 ? --counterZahl : 0;
+                } else stat--;
+
+
+                setFormatOutputs();
+
+
+            }
     }
 
 
@@ -53,6 +55,8 @@ public class ClockTimez extends Thread {
             } else {
                 Gui.area2.setText(Integer.toString(stat));
             }
+
+
 
         }
 

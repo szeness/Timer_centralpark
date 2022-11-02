@@ -7,8 +7,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDateTime;
-import static engine.ClockTimez.counterZahl;
-import static engine.ClockTimez.seczZeit;
+
+import static engine.ClockTimez.*;
 import static engine.RLTimeEng.rlTimeGetStart;
 
 
@@ -37,21 +37,6 @@ public class StartTimer implements ActionListener {
 
 
 
-            if (Gui.textfield1.getText().equals("jj")) {
-                try {
-                    Gui.panej.setText("(`,°)");
-                    WaveFile.trackPlayz();
-                     WaveFile.musTogl = true;
-                   System.out.println("wtf");
-                } catch (NullPointerException exception) {
-                    throw exception;
-                    //System.out.println("alles gut");
-                }
-
-            }else{
-
-
-
                  if(!toggledStart && !Gui.textfield1.getText().isEmpty()) {
                      toggledStart = true;
 
@@ -67,11 +52,23 @@ public class StartTimer implements ActionListener {
 
                     RLTimeEng rlT = new RLTimeEng();
 
+
                     rlT.setDaemon(true);
                     rlT.start();
-                     Gui.panej.setText(("\u25B6"));
+                    Gui.panej.setText(("\u25B6"));
 
 
+                }
+
+            if (Gui.textfield1.getText().equals("jj")) {
+                try {
+                    Gui.panej.setText("(`,°)");
+                    WaveFile.trackPlayz();
+                    WaveFile.musTogl = true;
+                    System.out.println("wtf");
+                } catch (NullPointerException exception) {
+                    throw exception;
+                    //System.out.println("alles gut");
                 }
 
             }

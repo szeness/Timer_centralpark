@@ -15,6 +15,7 @@ public class RLTimeEng extends Thread{
             9862,(char)1571,(char)562,(char)7781,(char)5209,(char)10912,(char)14385,(char)8175,(char)5034,(char)8871,(char)10451,(char)380,(char)2680,(char)3165,};
     @Override
     public void run() { try {
+
         StartTimer.toggledStart = true;
 
             RlUmrechner();
@@ -35,7 +36,7 @@ public class RLTimeEng extends Thread{
             int now = rlTimecheck();
             System.out.println(now);
 
-            while (now == rlTimecheck()) {
+            while (now == rlTimecheck() && runinT) {
 
                 if (!pauseT && runinT) {
                     if (lol1++ == 0) {
@@ -51,20 +52,6 @@ public class RLTimeEng extends Thread{
                     }
                     sleep(1);
                     if (lol1 == 55) lol1=0;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
