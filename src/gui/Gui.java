@@ -23,8 +23,7 @@ public class Gui extends JFrame {
     public static JButton buttonTimerStop,buttonTimerReset,buttonTimer;
     public JLabel wp;
     public JFrame framzz;
-
-
+    public static JTextField textfield2;
 
 
     public void run(){
@@ -38,10 +37,16 @@ public class Gui extends JFrame {
 
 
         textfield1 = new JTextField();
-        textfield1.setSize(50,20);
+        textfield1.setSize(40,20);
         textfield1.setLocation(200,100);
         framzz.add(textfield1);
         textfield1.setVisible(true);
+
+        textfield2 = new JTextField();
+        textfield2.setSize(40,20);
+        textfield2.setLocation(250,100);
+        framzz.add(textfield2);
+        textfield2.setVisible(true);
 
         buttonTimer = new JButton("Start");
         buttonTimer.setSize(100,50);

@@ -10,9 +10,7 @@ public class RLTimeEng extends Thread{
 
     public static int lol1;
     public static char e;
-    static char[] unico = new char[] {14709,(char)10852, (char) 9909, (char) 77660, (char) 11059, (char) 9200,(char)11790,(char)13030, (char) 77748,(char)13164,
-            (char)9717,(char)12875,(char)14533,(char)8733,(char)2224,(char)10080,(char)10283,(char)10523,(char) 5038,(char)
-            9862,(char)1571,(char)562,(char)7781,(char)5209,(char)10912,(char)14385,(char)8175,(char)5034,(char)8871,(char)10451,(char)380,(char)2680,(char)3165,};
+
     @Override
     public void run() { try {
 
@@ -42,9 +40,9 @@ public class RLTimeEng extends Thread{
                     if (lol1++ == 0) {
                         e = (char) new Random().nextInt(0, 15000);
                         Gui.area3.append(String.valueOf(e));
-                        System.out.println("unicode: "+(int)e);
+                        //System.out.println("unicode: "+(int)e);
                         //Gui.panej.setText(String.valueOf(e));
-                        System.out.println(e);
+                        //System.out.println(e);
                         if (Gui.area3.getText().length() > 9)
                             Gui.area3.setText("");
 
@@ -68,7 +66,7 @@ public class RLTimeEng extends Thread{
         LocalDateTime date = LocalDateTime.now();
         int nowSec = date.toLocalTime().toSecondOfDay();
 
-        if(nowSec >= seczZeit) {
+        if(nowSec == seczZeit) {
             System.out.println("finfin");
             finTime(2);
         }
@@ -80,7 +78,8 @@ public class RLTimeEng extends Thread{
         LocalDateTime date = LocalDateTime.now();
         int startS = date.toLocalTime().toSecondOfDay();
         int dur = min * 60;
-        seczZeit = startS + dur;
+        stat = ClockTimez.counterSecs;
+        seczZeit = startS + dur + stat;
         System.out.println("endesec = " + seczZeit);
 
     }

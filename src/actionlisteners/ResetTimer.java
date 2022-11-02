@@ -26,10 +26,11 @@ public class ResetTimer implements ActionListener  {
                 ClockTimez.pauseT = false;
 
                 ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
+                ClockTimez.counterSecs = !Gui.textfield2.getText().isEmpty() ? Integer.parseInt(Gui.textfield2.getText()) : 0;
 
                 Gui.area.setText(ClockTimez.counterZahl + ":");
-                ClockTimez.stat = 0;
-                Gui.area2.setText("00");
+                ClockTimez.stat = ClockTimez.counterSecs;
+                Gui.area2.setText(String.valueOf(ClockTimez.counterSecs));
                 StartTimer.toggledStart = false;
             }
         }

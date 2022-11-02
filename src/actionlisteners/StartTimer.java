@@ -37,7 +37,7 @@ public class StartTimer implements ActionListener {
 
 
 
-                 if(!toggledStart && !Gui.textfield1.getText().isEmpty()) {
+                 if(!toggledStart && !Gui.textfield1.getText().isEmpty() || !Gui.textfield2.getText().isEmpty() ) {
                      toggledStart = true;
 
                     if (!PauseTimer.pauseToggled)

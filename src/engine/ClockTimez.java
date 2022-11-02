@@ -12,6 +12,10 @@ public class ClockTimez extends Thread {
     public static int seczZeit;
     public static boolean runinT,pauseT;
     public static int counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
+
+    public static int counterSecs = !Gui.textfield2.getText().isEmpty() ? Integer.parseInt(Gui.textfield2.getText()) : 0;
+
+
     static boolean toggleCA;
 
 
