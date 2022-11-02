@@ -35,9 +35,19 @@ public class PauseTimer implements ActionListener {
 
         if (((JButton) e.getSource()).getText().equals("Pause")) {
 
+            if (WaveFile.soundclip != null && WaveFile.soundclip.isActive()) {
+                WaveFile.soundclip.stop();
+                WaveFile.musiTogl = false;
+            }
 
 
-            if(!pauseToggled && StartTimer.toggledStart && !BlinkingFin.endeAni) {
+            if (Gui.textfield1.getText().equals("jj")) {
+
+                Gui.panej.setText("\u25B6");
+
+            }
+
+        }else if(!pauseToggled && StartTimer.toggledStart && !BlinkingFin.endeAni ) {
 
                 ClockTimez.runinT = false;
 
@@ -51,20 +61,18 @@ public class PauseTimer implements ActionListener {
                 pauseDiffCounter();
 
 
-
-
             }
 
 
-            if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive()) {
-                WaveFile.soundclip.stop();
-                WaveFile.musiTogl = false;
-            }
+
+
+
+
             BlinkingFin.endeAni = false;
 
 
 
-        }
+
 
     }
 

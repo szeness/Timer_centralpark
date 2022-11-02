@@ -1,4 +1,5 @@
 package actionlisteners;
+import engine.BlinkingFin;
 import engine.ClockTimez;
 import engine.RLTimeEng;
 import sounds.WaveFile;
@@ -33,16 +34,33 @@ public class StartTimer implements ActionListener {
         if (((JButton) e.getSource()).getText().equals("Start")) {
 
 
+
+
             Gui.panej.setText("(`,°)");
 
 
-             if(!toggledStart && (!Gui.textfield1.getText().isEmpty() || !Gui.textfield2.getText().isEmpty() )) {
-                 toggledStart = true;
+            if (Gui.textfield1.getText().equals("jj")) {
+                try {
+                    Gui.panej.setText("(`,°)");
+                    WaveFile.trackPlayz();
+                    WaveFile.musiTogl = true;
+                    Gui.panej.setText(String.valueOf((char)9835));
+                    System.out.println("wtf");
+                } catch (NullPointerException exception) {
+                    throw exception;
+                    //System.out.println("alles gut");
+                }
+
+            }else if(!toggledStart && !BlinkingFin.endeAni &&(!Gui.textfield1.getText().isEmpty()
+                    || !Gui.textfield2.getText().isEmpty() )) {
+                    toggledStart = true;
 
                 if (!PauseTimer.pauseToggled)
+                    try {
+                        rlTimeGetStart(counterZahl);
+                    } catch (ExceptionInInitializerError exception) {
 
-                    rlTimeGetStart(counterZahl);
-
+                    }
                 else {
 
                     startDiffCounter();
@@ -62,18 +80,7 @@ public class StartTimer implements ActionListener {
 
             }
 
-            if (Gui.textfield1.getText().equals("jj")) {
-                try {
-                    Gui.panej.setText("(`,°)");
-                    WaveFile.trackPlayz();
-                    WaveFile.musiTogl = true;
-                    System.out.println("wtf");
-                } catch (NullPointerException exception) {
-                    throw exception;
-                    //System.out.println("alles gut");
-                }
 
-            }
         }
 
     }
