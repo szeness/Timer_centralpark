@@ -1,16 +1,13 @@
 package sounds;
 
-import gui.Gui;
-
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 public class WaveFile extends Thread {
 
     public static Clip soundclip;
-    public static boolean musTogl;
+    public static boolean musiTogl;
     public static String path = System.getProperty("user.dir");
 
     public static File sound = new File(path+"\\out\\production\\timerLAc\\sounds/syam.wav");
@@ -21,8 +18,8 @@ public class WaveFile extends Thread {
         try {
 
 
-            if (!musTogl) {
-                musTogl = true;
+            if (!musiTogl) {
+                musiTogl = true;
                 System.out.println(path);
 
 

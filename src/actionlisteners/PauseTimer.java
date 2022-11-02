@@ -1,7 +1,7 @@
 package actionlisteners;
 
+import engine.BlinkingFin;
 import engine.ClockTimez;
-import engine.RLTimeEng;
 import gui.Gui;
 import sounds.WaveFile;
 
@@ -35,7 +35,9 @@ public class PauseTimer implements ActionListener {
 
         if (((JButton) e.getSource()).getText().equals("Pause")) {
 
-            if(!pauseToggled && StartTimer.toggledStart) {
+
+
+            if(!pauseToggled && StartTimer.toggledStart && !BlinkingFin.endeAni) {
 
                 ClockTimez.runinT = false;
 
@@ -56,9 +58,9 @@ public class PauseTimer implements ActionListener {
 
             if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive()) {
                 WaveFile.soundclip.stop();
-                WaveFile.musTogl = false;
+                WaveFile.musiTogl = false;
             }
-
+            BlinkingFin.endeAni = false;
 
 
 

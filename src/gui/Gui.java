@@ -107,6 +107,7 @@ public class Gui extends JFrame {
 
         area2 = new JTextArea();
         area2.setSize(100,50);
+        area2.setLocation(140,208);
         area2.setBackground(Color.BLACK);
         area2.setFont(new Font("Arial", Font.BOLD, 30));
         area2.setForeground(Color.YELLOW);

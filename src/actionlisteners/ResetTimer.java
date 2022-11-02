@@ -1,4 +1,5 @@
 package actionlisteners;
+import engine.BlinkingFin;
 import engine.ClockTimez;
 import sounds.WaveFile;
 import gui.Gui;
@@ -17,9 +18,9 @@ public class ResetTimer implements ActionListener  {
 
             if(WaveFile.soundclip!=null && WaveFile.soundclip.isActive()) {
                 WaveFile.soundclip.stop();
-                WaveFile.musTogl = false;
+                WaveFile.musiTogl = false;
             }
-            else if(!Gui.area2.getText().isEmpty()){
+
                 Gui.panej.setText("\u21BA");
 
                 ClockTimez.runinT = false;
@@ -28,11 +29,15 @@ public class ResetTimer implements ActionListener  {
                 ClockTimez.counterZahl = !Gui.textfield1.getText().isEmpty() ? Integer.parseInt(Gui.textfield1.getText()) : 0;
                 ClockTimez.counterSecs = !Gui.textfield2.getText().isEmpty() ? Integer.parseInt(Gui.textfield2.getText()) : 0;
 
+
+
                 Gui.area.setText(ClockTimez.counterZahl + ":");
                 ClockTimez.stat = ClockTimez.counterSecs;
                 Gui.area2.setText(String.valueOf(ClockTimez.counterSecs));
+
                 StartTimer.toggledStart = false;
-            }
+                 BlinkingFin.endeAni = false;
+
         }
 
     }

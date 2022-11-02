@@ -1,6 +1,9 @@
 package engine;
 
 
+import actionlisteners.PauseTimer;
+import actionlisteners.ResetTimer;
+import actionlisteners.StartTimer;
 import gui.Gui;
 import sounds.WaveFile;
 
@@ -67,12 +70,26 @@ public class ClockTimez extends Thread {
     public static void finTime(int loops) throws InterruptedException {
 
         Gui.area2.setText("");
-        Gui.area.setText("F I N");
+        Gui.area.setText("00:00");
 
-          for (int i = 0; i < loops; i++) {
-            WaveFile.trackPlayz();
-            sleep(10000);
-            WaveFile.musTogl = false;
+        ClockTimez.runinT = false;
+        BlinkingFin.endeAni = true;
+
+        BlinkingFin blnk = new BlinkingFin();
+        blnk.setDaemon(true);
+        blnk.start();
+
+
+
+
+        WaveFile.trackPlayz();
+
+
+
+
+
+
+
          }
 
 
@@ -80,5 +97,5 @@ public class ClockTimez extends Thread {
 
 
 
-}
+
 

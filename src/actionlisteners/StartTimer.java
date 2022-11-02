@@ -36,35 +36,37 @@ public class StartTimer implements ActionListener {
             Gui.panej.setText("(`,°)");
 
 
+             if(!toggledStart && (!Gui.textfield1.getText().isEmpty() || !Gui.textfield2.getText().isEmpty() )) {
+                 toggledStart = true;
 
-                 if(!toggledStart && !Gui.textfield1.getText().isEmpty() || !Gui.textfield2.getText().isEmpty() ) {
-                     toggledStart = true;
+                if (!PauseTimer.pauseToggled)
 
-                    if (!PauseTimer.pauseToggled)
-                        rlTimeGetStart(counterZahl);
-                    else {
-                        startDiffCounter();
-                        PauseTimer.pauseToggled = false;
-                        ClockTimez.pauseT = false;
-                    }
+                    rlTimeGetStart(counterZahl);
 
-                    ClockTimez.runinT = true;
+                else {
 
-                    RLTimeEng rlT = new RLTimeEng();
-
-
-                    rlT.setDaemon(true);
-                    rlT.start();
-                    Gui.panej.setText(("\u25B6"));
-
-
+                    startDiffCounter();
+                    PauseTimer.pauseToggled = false;
+                    ClockTimez.pauseT = false;
                 }
+
+                ClockTimez.runinT = true;
+
+                RLTimeEng rlT = new RLTimeEng();
+
+
+                rlT.setDaemon(true);
+                rlT.start();
+                Gui.panej.setText(("\u25B6"));
+
+
+            }
 
             if (Gui.textfield1.getText().equals("jj")) {
                 try {
                     Gui.panej.setText("(`,°)");
                     WaveFile.trackPlayz();
-                    WaveFile.musTogl = true;
+                    WaveFile.musiTogl = true;
                     System.out.println("wtf");
                 } catch (NullPointerException exception) {
                     throw exception;

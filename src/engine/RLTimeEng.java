@@ -36,7 +36,7 @@ public class RLTimeEng extends Thread{
 
             while (now == rlTimecheck() && runinT) {
 
-                if (!pauseT && runinT) {
+                if (!pauseT && runinT ) {
                     if (lol1++ == 0) {
                         e = (char) new Random().nextInt(0, 15000);
                         Gui.area3.append(String.valueOf(e));
