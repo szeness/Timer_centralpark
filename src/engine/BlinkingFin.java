@@ -1,8 +1,6 @@
 package engine;
-
-import actionlisteners.StartTimer;
 import gui.Gui;
-import sounds.WaveFile;
+
 
 public class BlinkingFin extends Thread implements Runnable {
 
@@ -13,15 +11,20 @@ public class BlinkingFin extends Thread implements Runnable {
 
         try {
 
-            while(endeAni) {
+            while(endeAni && !ClockTimez.runinT) {
 
-                Gui.area.setVisible(false);
-                sleep(400);
+                Gui.area.setText("00:00");
                 Gui.area.setVisible(true);
-                sleep(400);
+
+                sleep(800);
+                Gui.panej.setText("\u23F0");
+                Gui.area.setText("    \u23F0");
+                sleep(600);
+                Gui.area.setVisible(false);
 
 
             }
+            Gui.area.setVisible(true);
 
 
 

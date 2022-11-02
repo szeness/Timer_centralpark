@@ -80,7 +80,7 @@ public class Gui extends JFrame {
         area = new JTextArea();
         area.setSize(100,50);
         area.setBackground(Color.BLACK);
-        area.setFont(new Font("Arial", Font.BOLD, 30));
+        area.setFont(new Font("Arial Unicode MS", Font.BOLD, 30));
         area.setForeground(Color.YELLOW);
         area.setLocation(100,208);
         area.setOpaque(false);
@@ -107,9 +107,10 @@ public class Gui extends JFrame {
 
         area2 = new JTextArea();
         area2.setSize(100,50);
+
         area2.setLocation(140,208);
         area2.setBackground(Color.BLACK);
-        area2.setFont(new Font("Arial", Font.BOLD, 30));
+        area2.setFont(new Font("Arial Unicode MS", Font.BOLD, 30));
         area2.setForeground(Color.YELLOW);
         area2.setOpaque(false);
         area2.setFocusable(false);
