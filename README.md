@@ -9,5 +9,8 @@ Im gonna check those details sometime, like what did gc take and what not. tho f
 
 So in this project i acomplished actualy the holding threads in control without they keep runing or maybe run twice if click to fast. 
 
-its a small steps for human kind but its a clockwork with stable actions right and bless you all
+code looks pretty
  
+its a small steps for human kind
+
+
