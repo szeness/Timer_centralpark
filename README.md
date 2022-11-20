@@ -13,6 +13,8 @@ Im gonna check those details sometime, like what did gc take and what not. tho f
 So in this project i acomplished actualy the holding threads in control without they keep runing or maybe run twice if click to fast. 
 
 code looks pretty
+
+tho there is one bug lasting , its when u type a new time, 0 minutes and some seconds, it will count 1 min on it. will fix
  
 its a small steps for human kind
 
