@@ -3,6 +3,7 @@ timer, beautiful timer with hidden sound play feature
 
 ![image](https://user-images.githubusercontent.com/105649203/202902288-1b346973-7904-4bbe-a09d-13f80fc4f4de.png)
 
+the design stood like this its not about the design here is trying to have a fully functional timer 
 
 yea well this is a Timer started from sleep(1000ms) to now assured results by taking system time and checkin every millisec.
 nano sec would make cpu work to much, at least my 5600x 
