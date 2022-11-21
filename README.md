@@ -2,6 +2,8 @@
 timer, beautiful timer with hidden sound play feature
 
 ![image](https://user-images.githubusercontent.com/105649203/202902288-1b346973-7904-4bbe-a09d-13f80fc4f4de.png)
+![image](https://user-images.githubusercontent.com/105649203/203039202-00b5fb1b-d470-43b2-9d82-5bdfeaecbaeb.png)
+
 
 the design stood like this its not about the design here Im trying to have a fully functional timer engine
 
@@ -12,6 +14,9 @@ Anyways Pause works fine, threads seems to be under control, tho possibly some n
 Im gonna check that sometime, like what did gc take and what not. tho for this project seems fine to use setDeamon and let Java decide gc. 
 
 So in this project i acomplished actualy the keeping threads in control without they stay runing or maybe run twice if click to fast. 
+
+the hidden soundplay function works like this:  if u type the two letters 'jj' in the left so the minutes field, and then press the buttons, 
+you will be able to start the music and stop it, and also to bounce it like a cue button. 
 
 code looks pretty
 
