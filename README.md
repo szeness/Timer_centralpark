@@ -17,6 +17,5 @@ code looks pretty
 
 tho there is one bug lasting , its when u type a new time, 0 minutes and some seconds, it will count 1 min on it. will fix it..
  
-its a small steps for human kind
-
+its a small steps for human kind in 2022. but once its been a huge one I guess
 
