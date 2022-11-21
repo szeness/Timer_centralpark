@@ -5,7 +5,7 @@ timer, beautiful timer with hidden sound play feature
 ![image](https://user-images.githubusercontent.com/105649203/203039202-00b5fb1b-d470-43b2-9d82-5bdfeaecbaeb.png)
 
 
-the design stood like this its not about the design here Im trying to have a fully functional timer engine
+the design some are questioning :) here Im trying to have a fully functional timer engine
 
 yea well this is a Timer started from sleep(1000ms) to now assured results by taking system time and checkin every millisec.
 nano sec would make the cpu work to much, at least my 5600x 
