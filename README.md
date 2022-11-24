@@ -20,7 +20,6 @@ you will be able to start the music and stop it, and also to bounce it like a cu
 
 code looks pretty
 
-tho there is one bug lasting , its when u type a new time, 0 minutes and some seconds, it will count 1 min on it. will fix it..
+tho there is one bug lasting , its when u type a new time, 0 minutes and some seconds, it will count 1 min on it ^^. will fix it 
  
-its a small steps for human kind in 2022. but once its been a huge one I guess
 
